@@ -1,0 +1,63 @@
+<html>
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="app row">
+        <div class="app__menu col-md-2"></div>
+        <div class="col-md-10">
+            <div class="row app__content"></div>
+        </div>
+    </div>
+</div>
+<template id="card">
+    <div class="col-xl-4 mb-2">
+        <div class="card">
+            <div class="row h-100">
+                <div class="col-4  h-100">
+                    <img class="img-fluid rounded-start" alt="img" src="./img/1100AHx4_dude.png">
+                </div>
+                <div class="col-8 align-items-center templates__card__content">
+                    <div class="row align-items-center  pt-3  pr-3" style="height: 25%;">
+                        <div class="col "><h6 class="card__device">Устройство:</h6></div>
+                        <div class="col card__device__text">127.0.0.1</div>
+                    </div>
+                    <div class="row align-items-center row__card__date" style="height: 25%;">
+                        <div class="col-6 "><h6 class="card__date">Дата конф.:</h6></div>
+                        <div class="col-6 card__date_text">22.02.2022</div>
+                    </div>
+                    <div class="row align-items-center pb-3 row__card__file" style="height: 25%;">
+                        <div class="col-6 "><h6 class="card__file">Файл конф.:</h6></div>
+                        <div class="col-6 "><a class="card__file_href" href="#">cfg.rsc</a></div>
+                    </div>
+                    <div class="row align-items-center pb-3 row__card__status" style="height: 25%;">
+                        <div class="col-6 "><h6 class="card__status">Статус:</h6></div>
+                        <div class="col-6 card__status_value">cfg.rsc</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+<template id="actions">
+    <div class="row align-items-center row__card__actions" style="height: 33%;">
+        <div class="col-6 "><h6 class="card__actions">Действия:</h6></div>
+        <div class="col-6 card__actions_elements">
+            <button type="button" class="btn btn-success p-0 card__action_add" style="font-size: 14px;" >Добавить</button>
+            <button type="button" class="btn btn-danger p-0 card__action_del" style="font-size: 14px;">Удалить</button>
+        </div>
+    </div>
+</template>
+<script src="./js/libs/jquery-3.6.0.min.js"></script>
+<script src="./js/libs/bootstrap.js"></script>
+<script type="module" src="./js/app.js" ></script>
+</body>
+</html>
