@@ -1,5 +1,5 @@
-# RouterOSBackuper
-Router OS Backuper with web interface
+# RouterOSBackuper with notification via telegram-bot
+RouterOS backup with web interface and notification via telegram-bot
 
 Need:
 
