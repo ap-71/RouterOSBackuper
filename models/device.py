@@ -1,5 +1,8 @@
+import os
+import sqlite3
+import loguru
 from configure import db
-
+import sqlalchemy
 
 class Device(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -83,5 +86,5 @@ class DeviceDiscovery(db.Model):
             }
         }
 
-
 db.create_all()
+
