@@ -1,4 +1,5 @@
 from icmplib import async_ping
+from run_services import SERVER_API
 
 from services.service import Service
 
@@ -8,7 +9,7 @@ class NetworkExplorer(Service):
         config_default = (
             ('status', None),
             ('url', None),
-            ('query', 'http://127.0.0.1:5000/api/discovery'),
+            ('query', f'http://{SERVER_API["IP"]}:{SERVER_API["PORT"]}/api/discovery'),
 
         )
         for key, value in config_default:

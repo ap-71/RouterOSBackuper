@@ -1,6 +1,6 @@
 import {get_discovery_device} from "./getDiscoveryDevice.js";
 import {create_card} from "../components/card.js";
-import { config } from "../../configuretion.js";
+import { config } from "../../configuration.js";
 
 export let add_device = (id) =>{
     // $('.app__content').innerHTML = ''

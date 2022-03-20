@@ -9,6 +9,7 @@ from loguru import logger
 from netmiko import ConnectHandler, NetmikoTimeoutException, NetmikoAuthenticationException
 
 from messenger import Telegram
+from run_services import SERVER_API
 from services.service import Service
 
 
@@ -26,7 +27,7 @@ class Backupper(Service):
             ('username', os.environ.get('MT_USER')),
             ('url', None),
             ('path', None),
-            ('query', 'http://127.0.0.1:5000/api/put_backup'),
+            ('query', f'http://{SERVER_API["IP"]}:{SERVER_API["PORT"]}/api/put_backup'),
         )
         for key, value in config_default:
             if kwargs.get(key) is None:

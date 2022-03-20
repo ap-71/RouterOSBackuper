@@ -4,9 +4,18 @@ from datetime import datetime
 
 import requests
 from loguru import logger
+import os
+from dotenv import load_dotenv
 
 from services import service_fabric, services_run, EnumServices, make_manager
 
+
+load_dotenv()
+
+SERVER_API = {
+    "IP": os.environ.get('SERVER_API_IP', "127.0.0.1"),
+    "PORT": os.environ.get('SERVER_API_PORT', "5000")
+}
 
 def run_services():
     # def get_devices_with_backup_none():
@@ -20,7 +29,7 @@ def run_services():
 
     def get_device_from_db():
         try:
-            result = requests.get('http://127.0.0.1:5000/api/get').json()
+            result = requests.get(f'http://{SERVER_API["IP"]}:{SERVER_API["PORT"]}/api/get').json()
             return [device_['info']['ip'] for device_ in result['data']]
         except requests.exceptions.ConnectionError as error_:
             logger.error(str(error_))
@@ -29,7 +38,7 @@ def run_services():
 
     def device_from_backup():
         try:
-            result = requests.get('http://127.0.0.1:5000/api/get').json()
+            result = requests.get(f'http://{SERVER_API["IP"]}:{SERVER_API["PORT"]}/api/get').json()
             devices = []
             now_date = datetime.now()
             for device in result['data']:
@@ -48,11 +57,11 @@ def run_services():
 
     def gen_ip_range():
         devices_in_db = get_device_from_db()
-        return [f'172.16.255.{i}' for i in range(1, 255) if f'172.16.255.{i}' not in devices_in_db]
+        return [f'{os.environ.get("IP_RANGE")}{i}' for i in range(1, 255) if f'{os.environ.get("IP_RANGE")}{i}' not in devices_in_db]
 
     make_manager(name='device_in_db',
                  service=service_fabric(EnumServices.NetworkExplorer.value),
-                 query=f'http://127.0.0.1:5000/api/update_device',
+                 query=f'http://{SERVER_API["IP"]}:{SERVER_API["PORT"]}/api/update_device',
                  def_get_device=get_device_from_db)
 
     make_manager(name='device_discovery',

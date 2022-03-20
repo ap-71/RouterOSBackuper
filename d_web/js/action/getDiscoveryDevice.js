@@ -1,4 +1,4 @@
-import { config } from "../../configuretion.js"
+import { config } from "../../configuration.js"
 
 export let get_discovery_device = (id=null, action, actions=false) => {
     $('.app__content').innerHTML = ''

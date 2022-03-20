@@ -1,4 +1,4 @@
-import { config } from "../../configuretion.js"
+import { config } from "../../configuration.js"
 
 export let get_file = (path='') => {
     let filename = path.split('/')

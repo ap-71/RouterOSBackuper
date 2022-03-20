@@ -1,8 +1,8 @@
-/files/backups/
-/files/app.db
-/.env
-/venv/
-/_delete/
+files/backups/
+files/app.db
+.env
+venv/
+_delete/
 .idea
 __pycache__
 # Logs
