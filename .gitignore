@@ -1,5 +1,6 @@
 files/backups/
-files/app.db
+files/db/
+app.db
 .env
 venv/
 _delete/
