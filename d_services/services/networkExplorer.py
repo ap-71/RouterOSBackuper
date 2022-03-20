@@ -1,5 +1,5 @@
 from icmplib import async_ping
-from run_services import SERVER_API
+from configuration import SERVER_API
 
 from services.service import Service
 

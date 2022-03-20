@@ -1,0 +1,43 @@
+services:
+  py_api:
+    build: ./d_flask
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./files/db/:/app/files/db/
+      - ./files/backups/:/app/files/backups/
+    networks:
+      back:
+        ipv4_address: 172.31.31.2
+      default:
+      
+
+  py_services:
+    build: ./d_services
+    volumes:
+      - ./files/backups/:/app/files/backups/
+    networks:
+      back:
+        ipv4_address: 172.31.31.3
+      default:
+  
+  node_web:
+    build: ./d_web
+    ports:
+      - "49100:3333"
+    networks:
+      back:
+        ipv4_address: 172.31.31.254
+      default:
+
+networks:
+  default:
+    driver: bridge
+  back:
+    driver: bridge
+    internal: true
+    enable_ipv6: false
+    ipam:
+     driver: default
+     config:
+       - subnet: 172.31.31.0/24

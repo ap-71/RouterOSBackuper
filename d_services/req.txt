@@ -1,0 +1,12 @@
+dataclasses
+Flask
+Flask-Cors
+Flask-SQLAlchemy
+loguru
+python-dotenv
+requests
+SQLAlchemy
+pysftp
+asgiref
+netmiko
+icmplib

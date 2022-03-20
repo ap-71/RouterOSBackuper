@@ -6,16 +6,14 @@ import requests
 from loguru import logger
 import os
 from dotenv import load_dotenv
+from configuration import SERVER_API
 
 from services import service_fabric, services_run, EnumServices, make_manager
 
 
 load_dotenv()
 
-SERVER_API = {
-    "IP": os.environ.get('SERVER_API_IP', "127.0.0.1"),
-    "PORT": os.environ.get('SERVER_API_PORT', "5000")
-}
+
 
 def run_services():
     # def get_devices_with_backup_none():

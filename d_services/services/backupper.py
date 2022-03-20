@@ -7,9 +7,9 @@ from asgiref.sync import sync_to_async
 from dotenv import load_dotenv
 from loguru import logger
 from netmiko import ConnectHandler, NetmikoTimeoutException, NetmikoAuthenticationException
+from configuration import SERVER_API
 
 from messenger import Telegram
-from run_services import SERVER_API
 from services.service import Service
 
 

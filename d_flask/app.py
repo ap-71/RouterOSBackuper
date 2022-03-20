@@ -1,17 +1,12 @@
+import os
 from pprint import pprint
+from dotenv import load_dotenv
 
 from flask import request
 
 from configure import app
 from models import actions
 from utils.jsonSkeleton import JSONSkeleton
-
-
-# @app.route('/', defaults={'path': ''})
-# @app.route('/<path:path>')
-# def main(path):
-#     # return app.send_static_file("index.html")
-#     return send_from_directory("templates", 'index.html')
 
 
 @app.route('/api/<action>', methods=['GET', 'POST', 'OPTIONS'])
@@ -25,4 +20,5 @@ def api(action):
 
 
 if __name__ == '__main__':
-    app.run()
+    load_dotenv()
+    app.run(host=os.environ.get('SERVER_ACC_IP'), port=os.environ.get('SERVER_ACC_PORT'))
