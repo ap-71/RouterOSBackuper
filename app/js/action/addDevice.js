@@ -1,14 +1,15 @@
 import {get_discovery_device} from "./getDiscoveryDevice.js";
 import {create_card} from "../components/card.js";
+import { config } from "../../configuretion.js";
 
 export let add_device = (id) =>{
     // $('.app__content').innerHTML = ''
     let xhr = new XMLHttpRequest()
     // xhr.withCredentials = true
     // http://127.0.0.1:5000/api/add?ip=172.16.255.1
-    xhr.open('GET', new URL(`http://127.0.0.1:5000/api/add?id=${id}`), true)
+    xhr.open('GET', new URL(`http://${config.server_api.ip}:${config.server_api.port}/api/add?id=${id}`), true)
     xhr.responseType = 'json'
-    xhr.setRequestHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5000')
+    xhr.setRequestHeader('Access-Control-Allow-Origin', `http://${config.server_api.ip}:${config.server_api.port}`)
         // xhr.setRequestHeader('Referer', 'http://127.0.0.1:5000/')
     xhr.send()
     xhr.onload = function() {

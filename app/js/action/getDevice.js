@@ -1,10 +1,12 @@
+import { config } from "../../configuretion.js"
+
 export let get_device = (id=null, action) => {
     $('.app__content').innerHTML = ''
     let xhr = new XMLHttpRequest()
     // xhr.withCredentials = true
-    xhr.open('GET', new URL(id === null | id === -1 ? 'http://127.0.0.1:5000/api/get' :'http://127.0.0.1:5000/api/get?id=' + String(id)), true)
+    xhr.open('GET', new URL(id === null | id === -1 ? `http://${config.server_api.ip}:${config.server_api.port}/api/get` :`http://${config.server_api.ip}:${config.server_api.port}/api/get?id=` + String(id)), true)
     xhr.responseType = 'json'
-    xhr.setRequestHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:5000')
+    xhr.setRequestHeader('Access-Control-Allow-Origin', `http://${config.server_api.ip}:${config.server_api.port}`)
         // xhr.setRequestHeader('Referer', 'http://127.0.0.1:5000/')
     xhr.send()
     xhr.onload = function() {
